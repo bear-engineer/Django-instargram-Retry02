@@ -13,9 +13,16 @@
     <header>
         <nav>
             <ul>
-                <li><a href="">sign in</a></li>
-                <li><a href="">sign up</a></li>
-                <li><a href=""></a></li>
+                {% if user.is_authenticated %}
+                    <form action="{% url 'members:sign-out' %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit">sign out</button>
+                    </form>
+                {% else %}
+                    <li><a href="{% url 'members:sign-in' %}">sign in</a></li>
+                    <li><a href="{% url 'members:sign-up' %}">sign up</a></li>
+                {% endif %}
+
             </ul>
         </nav>
     </header>

@@ -7,4 +7,4 @@ def post(request):
     context = {
         'posts':posts
     }
-    return HttpResponse('post-list')
+    return render(request, 'posts/post_list.html', context)

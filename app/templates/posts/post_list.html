@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for post in posts %}
+        <article>
+            <div>{{ post.author }}</div>
+            <div><img src="{{ post.photo.url }}" alt="" width="100%"></div>
+            <div>{{ post.created_at }}</div>
+        </article>
+    {% endfor %}
+{% endblock %}
